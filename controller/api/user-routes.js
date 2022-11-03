@@ -1,11 +1,11 @@
 const router = require('express').Router();
-const {User} = require('../../models');
+const {User, Event} = require('../../models');
 
 // ===== GET all users info -> /api/users
 router.get('/', (req, res) => {
     // SELECT * FROM users table
     User.findAll({
-        attributes: {exclude: ['password']} 
+        attributes: {exclude: ['password']}
     }).then(dbUserData => {
         return res.json(dbUserData);
     }).catch(err => {
@@ -19,7 +19,13 @@ router.get('/:id', (req, res) => {
     // SELECT * FROM users WHERE id = ?
     User.findOne({
         attributes: {exclude: ['password']},
-        where: {id: req.params.id} 
+        where: {id: req.params.id},
+        include: [
+            {
+                model: Event,
+                attributes: ['event_title']
+            }
+        ] 
     }).then(dbUserData => {
         if(!dbUserData) {
             res.status(400).json({message: 'No user found with specified ID. Please try again'});
