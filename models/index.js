@@ -2,28 +2,27 @@
 // connection and associations between tables will go here
 const User = require('./User');
 const Event = require('./Event');
-const Attendants = require('./Attendants');
+
+const Menu = require('./Menu');
 
 // associations between User and Event tables
-User.hasMany(Event, {
-    foreignKey: 'user_id'
-});
-
 User.belongsToMany(Event, {
-    through: Attendants,
-    as: 'event_attendants',
-    foreignKey: 'user_id'
+    through: 'eventAttendants',
+    as: 'RSVPevents'  // use this string as a name when 'include' in the routes
 });
 
 Event.belongsToMany(User, {
-    through: Attendants,
-    as: 'event_attendants',
+    through: 'eventAttendants',
+    as: 'attendants'
+});
+
+Menu.belongsTo(Event, {
     foreignKey: 'event_id'
 });
 
-Event.hasMany(User, {
+Event.hasMany(Menu, {
     foreignKey: 'event_id'
 });
 
 
-module.exports = {User, Event, Attendants};
+module.exports = {User, Event, Menu};
