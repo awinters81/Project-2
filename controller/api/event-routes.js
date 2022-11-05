@@ -22,8 +22,8 @@ router.get('/:id', (req, res) => {
         where: {id: req.params.id},
         include: [
             {
-                model: User,
-                attributes: ['first_name', 'last_name']
+                association: 'attendants',
+                attributes: ['first_name', 'last_name', 'username']
             }
         ]
     }).then(dbEventData => {
@@ -51,6 +51,27 @@ router.post('/', (req, res) => {
         res.status(500).json(err);
     });
 });
+
+
+// ===== POST for RSVP
+router.post('/rsvp/:id', (req, res) => {
+    Promise.all(
+        [
+            Event.findByPk(req.params.id),
+            User.findByPk(req.body.id)
+        ]
+    ).then(([resEvent, resUser]) => {
+        resEvent.setAttendants(resUser) // getting the event obj by the id and user obj by id mentioned in request and defining association to pass to response
+        
+        return res.json([resEvent, resUser])
+    }).catch(err => {
+        console.log(err);
+        res.status(500).json(err)
+    })
+})
+
+
+
 
 // ===== UPDATE event info by ID -> /api/events/:id
 router.put('/:id', (req, res) => {
