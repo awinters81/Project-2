@@ -6,13 +6,12 @@ const sequelize = require('./config/connection');
 const session = require('express-session');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const sess = {
-    secret: 'some secret word',
+    secret: 'secret message',
     cookie: {},
     resave: false,
     saveUninitialized: true,
     store: new SequelizeStore({db:sequelize})
 };
-
 
 const path = require('path');
 

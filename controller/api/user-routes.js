@@ -9,7 +9,7 @@ router.get('/', (req, res) => {
     }).then(dbUserData => {
         return res.json(dbUserData);
     }).catch(err => {
-        console.log(`cannot get all users because ${err}`);
+        console.log(err);
         res.status(500).json(err);
     });
 });
@@ -48,15 +48,13 @@ router.post('/', (req, res) => {
         email: req.body.email,
         password: req.body.password 
     }).then(dbUserData => {
-        req.session.save(() => {
-            req.session.user_id = dbUserData.userID,
-            req.session.first_name = dbUserData.firstName,
-            req.session.last_name = dbUserData.lastName,
-            req.session.username = dbUserData.username,
-            req.session.userLoggedIn = true;
-            res.json(dbUserData);
-            console.log('user successfully created!')
-        });
+       req.session.save(() => {
+        req.session.user_id = dbUserData.id;
+        req.session.username = dbUserData.username;
+        req.session.email = dbUserData.email;
+        req.session.loggedIn = true;
+        res.json(dbUserData);
+       });
     }).catch(err => {
         console.log(`cannot get user info because ${err}`);
         res.status(500).json(err);
@@ -81,9 +79,10 @@ router.post('/login', (req, res) => {
             return;
         }
         req.session.save(() => {
-            req.session.user_id = dbUserData.userID,
+            req.session.user_id = dbUserData.id,
             req.session.username = dbUserData.username,
-            req.session.userLoggedIn = true;
+            req.session.email = dbUserData.email;
+            req.session.loggedIn = true;
             res.json({ user: dbUserData, message: 'Login successful!' });
         
         });
@@ -92,7 +91,7 @@ router.post('/login', (req, res) => {
 
 // ===== LOGOUT = destroy the current session
 router.post('/logout', (req, res) => {
-    if(req.session.userLoggedIn) {
+    if(req.session.loggedIn) {
         req.session.destroy(() => {
             res.status(204).end();
         });
