@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Utopia</title>
+  <link rel="stylesheet" type="text/css" href="/public/css/style.css">
+</head>
+
+<body>
+  
+<!--Header-->
+
+  <header>
+    <img src="/images/Utopia (blue).JPG ">
+  </header>
+  
+<!--Navigation-->
+
+  <nav>
+ 
+    {{#if logged.in }}
+    
+    <a href=" ">Home</a>
+    <a href=" ">Personal Info</a>
+    <a href=" ">Settings</a>
+    <a href=" ">Logout</a>
+
+    {{else}}
+    <a href=" ">Home</a>
+    <a href=" ">Login</a>
+
+    {{/if}}
+    
+  </nav>
+
+
+  <main>
+    <aside>
+      <h2>Welcome to Utopia!</h2>
+      <h3>Where all your culinary dreams come true!</h3>
+    </aside>
+    <div class="gallery">
+      {{{body}}}
+    </div>
+  </main>
+</body>
+
+</html>
