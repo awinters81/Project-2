@@ -1,6 +1,6 @@
 const sequelize = require('../config/connection');
 const {User, Event} = require('../models');
-const { post } = require('./api');
+
 
 const router = require('express').Router();
 
@@ -18,5 +18,14 @@ router.get('/', (req, res) => {
         res.status(500).json(err);
     });
 });
+
+// access login/signup page from the homepage
+router.get('/login', (req, res) => {
+    if(req.session.userLoggedIn) {
+        return res.redirect('/');
+    }
+    res.render('login');
+})
+
 
 module.exports = router;
