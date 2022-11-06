@@ -2,7 +2,6 @@
 // connection and associations between tables will go here
 const User = require('./User');
 const Event = require('./Event');
-
 const Menu = require('./Menu');
 
 // associations between User and Event tables
