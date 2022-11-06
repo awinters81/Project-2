@@ -13,7 +13,7 @@ router.get('/', (req, res) => {
         const events = dbEventData.map(event => {
             return event.get({ plain: true });
         })
-        res.render('homepage', {events, loggedIn: req.session.loggedIn });
+        res.render('homepage', {events });
     }).catch(err => {
         console.log(err);
         res.status(500).json(err);
@@ -23,10 +23,10 @@ router.get('/', (req, res) => {
 // access login/signup page from the homepage
 router.get('/login', (req, res) => {
     // check for a session and redirect to the homepage once the user is logged in
-    if(req.session.loggedIn) {
-        res.redirect('/');
-        return
-    }
+    // if(req.session.loggedIn) {
+    //     res.redirect('/');
+    //     return
+    // }
     res.render('login')
 })
 

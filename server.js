@@ -1,17 +1,10 @@
 const express = require('express');
-const routes = require('./controller/');
+const routes = require('./controller');
 const sequelize = require('./config/connection');
 
 // import sessions library
 const session = require('express-session');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
-const sess = {
-    secret: 'secret message',
-    cookie: {},
-    resave: false,
-    saveUninitialized: true,
-    store: new SequelizeStore({db:sequelize})
-};
 
 const path = require('path');
 
@@ -35,7 +28,15 @@ app.set('view engine', 'handlebars');
 app.use(routes);
 
 // session middleware
-app.use(session(sess));
+app.use(session(
+    {
+        secret: 'secret message',
+        cookie: {},
+        resave: false,
+        saveUninitialized: true,
+        store: new SequelizeStore({db:sequelize})
+    }
+));
 
 //connect server to the database
 sequelize.sync({ force: false }).then(() => {
