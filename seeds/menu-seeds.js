@@ -10,10 +10,10 @@ const menuData = [
     },
     {
         menuTitle: "French cuisine tasting lalala",
-        appetizer: " ",
-        main_course: " ",
-        drink: " ",
-        dessert: " "
+        appetizer: "Tarte au Camembert w/Raspberry Preserves",
+        main_course: "Classic Duck a l'Orange",
+        drink: "Veuve Clicquot Brut Yellow Label",
+        dessert: "Mille Feuille with Dark Chocolate and Pistachio Cream"
     },
     {
         menuTitle: "Japanese cuisine tasting lalala",

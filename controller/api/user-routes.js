@@ -48,7 +48,15 @@ router.post('/', (req, res) => {
         email: req.body.email,
         password: req.body.password 
     }).then(dbUserData => {
-        return res.json(dbUserData);
+        req.session.save(() => {
+            req.session.user_id = dbUserData.userID,
+            req.session.first_name = dbUserData.firstName,
+            req.session.last_name = dbUserData.lastName,
+            req.session.username = dbUserData.username,
+            req.session.userLoggedIn = true;
+            res.json(dbUserData);
+            console.log('user successfully created!')
+        });
     }).catch(err => {
         console.log(`cannot get user info because ${err}`);
         res.status(500).json(err);
@@ -72,14 +80,26 @@ router.post('/login', (req, res) => {
             res.status(400).json({message: 'Wrong password! Please try again!'});
             return;
         }
-        res.json({ user: dbUserData, message: 'Login successful!' });
-    })
-})
+        req.session.save(() => {
+            req.session.user_id = dbUserData.userID,
+            req.session.username = dbUserData.username,
+            req.session.userLoggedIn = true;
+            res.json({ user: dbUserData, message: 'Login successful!' });
+        
+        });
+    });
+});
 
 // ===== LOGOUT = destroy the current session
 router.post('/logout', (req, res) => {
-
-})
+    if(req.session.userLoggedIn) {
+        req.session.destroy(() => {
+            res.status(204).end();
+        });
+    } else {
+        res.status(404).end();
+    }
+});
 
 // ===== PUT /api/users
 router.put('/:id', (req, res) => {
