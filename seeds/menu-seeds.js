@@ -17,10 +17,10 @@ const menuData = [
     },
     {
         menuTitle: "Japanese cuisine tasting lalala",
-        appetizer: " ",
-        main_course: " ",
-        drink: " ",
-        dessert: " "
+        appetizer: "Pork Potstickers",
+        main_course: "Salmon Sushi",
+        drink: "Moonstones Cold Sake",
+        dessert: "Red Bean Mochi"
     },
     {
         menuTitle: "Spanish cuisine tasting lalala",
