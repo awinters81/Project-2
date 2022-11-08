@@ -1,12 +1,14 @@
 <p style="text-align: center"><img src="./public/images/utopiablue.JPG" width="400"></p><br>
+
 <div style="text-align: center"> 
 
-# _**Welcome to Utopia - where all your gastronomical dreams come true!**_
+### Welcome to Utopia - where all your gastronomical dreams come true! 
 </div> 
 
- ### **UTOPIA - is a full stack web application built with the best practices of RESTful APIs. UTOPIA development team is striving to deliver the highest quality user experience on a client side and the most efficient functionality on the back end of our application. As much as UTOPIA project is all about the gastronomical aesthetics of traditional cuisine from different cultures representing their authenticity and unique features, UTOPIA developers are all about implementing the most suitable technologies to cater to our customers' preferences**  <br>
+<p> <strong><em> UTOPIA - is a full stack web application built with the best practices of RESTful APIs. UTOPIA development team is striving to deliver the highest quality user experience on a client side and the most efficient functionality on the back end of our application. As much as UTOPIA project is all about the gastronomical aesthetics of traditional cuisine from different cultures representing their authenticity and unique features, UTOPIA developers are all about implementing the most suitable technologies to cater to our customers' preferences.  </em></strong></p>
 
-========================================================================================================================================================================================
+=========================================================================== <br>
+
 > ### ___For a better navigation experience please refer to the link list below:___ <br>
 - [Application Architecture](#application-architecture)
 - [Functionality & walk-through](#functionality)
@@ -28,6 +30,16 @@ Please refer to the following resources in this repository<br>
 
 >> #### The Backend
 <p>  </p>
+
+- <strong> to sign up </strong>, you will need to fill out the form with the following information: first name, last name, username, email, password. <br>
+After that, front end Javascript will capture this data and perform a fetch() request with a POST method to /api/users endpoint. Once the information about a new user is added to the database - a new session will be saved with user id and username to let the user freely navigate on a website.<br>
+
+- <strong> to login </strong>, you will need to fill out the login form with your: username, email and password. <br>
+lalala.....
+
+- <strong> to RSVP for an event </strong>, the following steps are taken: <br>
+lalala ........
+
 
 <br></br>
 
@@ -72,19 +84,4 @@ Please refer to the following resources in this repository<br>
 | Bettina        | [bettinastaartjes](https://github.com/bettinastaartjes)   | [Bettina Staartjes](PASTE YOUR LINKEDIN)
 | Matthew        | [P1100s7](https://github.com/P1100s7)                     | [Matthew Parness](PASTE YOUR LINKEDIN)
 
-
-
-
-
-
-
-
-
-to signup (POST a new user), you will need:
-first_name, last_name, username, email, password
-
-to login (also through POST request), you will need:
-username, email, password
-
-to register an event, the following information is required:
-event_title, event_description, event_location, event_date, event_rsvp
+### Thank you for visiting!
