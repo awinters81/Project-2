@@ -2,32 +2,32 @@ const {Menu} = require('../models');
 
 const menuData = [
     {
-        menuTitle: "Indian cuisine tasting lalala",
-        appetizer: "something yummy appetizer",
-        main_course: "briyani with saffrom rice maybe",
-        drink: "mango lassi",
-        dessert: "some sweet dessert"
+        menuTitle: "Indian cuisine tasting experience",
+        appetizer: "Matar Kachori",
+        main_course: "Baingan Bharta",
+        drink: "Thandai",
+        dessert: "Gulab Jamun"
     },
     {
-        menuTitle: "French cuisine tasting lalala",
+        menuTitle: "French cuisine tasting experience",
         appetizer: "Tarte au Camembert w/Raspberry Preserves",
         main_course: "Classic Duck a l'Orange",
         drink: "Veuve Clicquot Brut Yellow Label",
         dessert: "Mille Feuille with Dark Chocolate and Pistachio Cream"
     },
     {
-        menuTitle: "Japanese cuisine tasting lalala",
+        menuTitle: "Japanese cuisine tasting experience",
         appetizer: "Pork Potstickers",
         main_course: "Salmon Sushi",
         drink: "Moonstones Cold Sake",
         dessert: "Red Bean Mochi"
     },
     {
-        menuTitle: "Spanish cuisine tasting lalala",
-        appetizer: " ",
-        main_course: " ",
-        drink: " ",
-        dessert: " "
+        menuTitle: "Spanish cuisine tasting experience",
+        appetizer: "Patatas Bravas",
+        main_course: "Seafood Paella",
+        drink: "Gin & Tonic",
+        dessert: "Tres Leches"
     }
 ]
 
