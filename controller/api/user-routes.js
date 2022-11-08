@@ -47,15 +47,14 @@ router.post('/', (req, res) => {
         username: req.body.username,
         email: req.body.email,
         password: req.body.password 
-    }).then(dbUserData => {
+    }).then(dbUserData => 
         req.session.save(() => {
             req.session.user_id = dbUserData.id;
             req.session.username = dbUserData.username;
             req.session.email = dbUserData.email;
             req.session.loggedIn = true;
-             res.json(dbUserData);
-       });
-    }).catch(err => {
+            res.json(dbUserData);
+       })).catch(err => {
         console.log(`cannot get user info because ${err}`);
         res.status(500).json(err);
     })
@@ -81,10 +80,9 @@ router.post('/login', (req, res) => {
         req.session.save(() => {
             req.session.user_id = dbUserData.id,
             req.session.username = dbUserData.username,
-            req.session.loggedIn = true;
-            return res.json({ user: dbUserData, message: 'Login successful!' });
-        
+            req.session.loggedIn = true;        
         });
+        return res.json({ user: dbUserData, message: 'Login successful!' });
     });
 });
 
