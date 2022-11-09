@@ -1,9 +1,61 @@
 
-
-.gallery {
-    background-color: blueviolet;
+* {
+    margin: 0;
+    padding: 0;
+    background-color: skyblue;
 }
 
-.test {
-    background-color: skyblue;
+li, a, button {
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: white;
+    text-decoration: none;
+}
+
+header {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 100px;
+    align-items: center;
+    padding: 30px 10%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 85%;
+    height: 50px;
+}
+
+.logo {
+    cursor: pointer;
+    margin-right: auto;
+    height: 100px;
+    width: 100px;
+}
+
+.nav__links {
+    list-style:none;
+}
+
+.nav__links li {
+    display: inline-block;
+    padding: 0px 20px;
+}
+
+.nav__links li a {
+    transition: all 0.3s ease 0s;
+}
+
+.nav__links li a:hover {
+    color: #0088a9;
+}
+
+button {
+    padding: 9px 25px;
+    background-color: rgba(0,136,169,1);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+    margin-left: 20px;
 }
