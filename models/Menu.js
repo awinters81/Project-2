@@ -15,19 +15,35 @@ Menu.init(
             type: DataTypes.STRING,
             allowNull: false
         },
-        appetizer: {
-            type: DataTypes.TEXT,
+        appetizer_name: {
+            type: DataTypes.STRING,
             allowNull: false 
         },
-        main_course: {
+        appetizer_description: {
             type: DataTypes.TEXT,
             allowNull: false
         },
-        drink: {
+        main_name: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        main_description: {
             type: DataTypes.TEXT,
+            allowNull: false
+        },
+        drink_name: {
+            type: DataTypes.STRING,
             allowNull: false 
         },
-        dessert: {
+        drink_description: {
+            type: DataTypes.TEXT,
+            allowNull: false
+        },
+        dessert_name: {
+            type: DataTypes.STRING,
+            allowNull: false 
+        },
+        dessert_description: {
             type: DataTypes.TEXT,
             allowNull: false 
         },

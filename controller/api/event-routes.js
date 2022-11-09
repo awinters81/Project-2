@@ -1,5 +1,6 @@
 const router = require('express').Router();
-const {Event, User} = require('../../models');
+const sequelize = require('../../config/connection');
+const {Event, User, Menu} = require('../../models');
 
 
 // ===== GET all events info -> /api/events
@@ -25,6 +26,10 @@ router.get('/:id', (req, res) => {
                 {
                     association: 'attendants',
                     attributes: ['first_name', 'last_name', 'username']
+                }, 
+                {
+                    model: Menu,
+                    attributes: ['menuTitle', 'appetizer_name', 'appetizer_description', 'main_name', 'main_description', 'drink_name', 'drink_description', 'dessert_name', 'dessert_description']
                 }
             ]
         }).then(dbEventData => {

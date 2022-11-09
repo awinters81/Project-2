@@ -4,7 +4,7 @@ const {Menu, Event, User} = require('../../models');
 // GET all dishes info
 router.get('/', (req, res) => {
     Menu.findAll({
-        attributes: ['id', 'menuTitle', 'appetizer', 'main_course', 'drink', 'dessert'],
+        attributes: ['id', 'menuTitle', 'appetizer_name', 'appetizer_description', 'main_name', 'main_description', 'drink_name', 'drink_description', 'dessert_name', 'dessert_description'],
         include: [
             {
                 model: Event,
@@ -23,7 +23,7 @@ router.get('/', (req, res) => {
 });
 
 
-// GET a single menu item
+// GET a single menu for a single event
 router.get('/:id', (req, res) => {
     Menu.findOne({
         where: {id: req.params.id},
