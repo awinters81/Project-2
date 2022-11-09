@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const { response } = require('express');
 const {User, Event} = require('../../models');
 
 // ===== GET all users info -> /api/users
@@ -72,14 +73,35 @@ router.post('/login', (req, res) => {
             res.status(400).json({message: 'Wrong password! Please try again!'});
             return;
         }
-        res.json({ user: dbUserData, message: 'Login successful!' });
+        req.session.save((err) => {
+            if(err) res.status(500).json({message: "Error saving session internal error", err});
+            req.session.userId = dbUserData.ib
+            req.session.userName = dbUserData.id
+            req.session.loggedIn = true
+            res.status(204).json({ user: dbUserData, message: 'Login successful!' });
+        })
     })
 })
 
 // ===== LOGOUT = destroy the current session
 router.post('/logout', (req, res) => {
+    console.log("Request logout", req)
+    console.log("Respond logout", res);
+    const abort = new AbortController();
+    if(!req.session) {
+        res.status(400).send("Session not found cannot logout");
+    };
 
-})
+    if(req.session.loggedIn) {
+        res.session.destroy((signal) => {
+            signal = abort.signal
+            res.status(204).json({message: "Logout was succsesful"}).end();
+        });
+    };
+
+    res.status(500).send("Internal server error") 
+
+});
 
 // ===== PUT /api/users
 router.put('/:id', (req, res) => {
