@@ -14,22 +14,25 @@
 <!--Header-->
 
   <header>
-    <img class="logo" src="/images/utopiablue.JPG">
+    <img class="logo" src="/images/logo.jpg">
   
   <!--Navigation-->
     <nav>
  
      {{#if loggedIn }}
     
-    <a href="/">Home</a>
-    <a href="/">Personal Info</a>
-    <a href="/">Settings</a>
-    <button class="logout-btn">Logout</button>
+    <ul class="nav-links"></ul>
+      <li><a href="/">Home</a> </li>
+      <li><a href="/">Personal Info</a></li>
+      <li><a href="/">Settings</a></li>
+      <li><button class="logout-btn">Logout</button></li>
 <!--Matt, when button is clicked, it should end the session and redirect to main-->
 
     {{else}}
-    <a href="/">Home</a>
-    <a href="/views/partials/login.handlebars">Login</a>
+
+    <ul class="nav-links"></ul>
+    <li><a href="</">Home</a></li>
+    <li><a href="/views/partials/login.handlebars">Login</a></li>
 
     {{/if}}
 
