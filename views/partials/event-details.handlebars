@@ -1,4 +1,4 @@
-<section class="card">
+<section class="event-card">
   
   <!--Link to the event using event ID -->
   
@@ -17,14 +17,15 @@
     <div>
         <a>{{event_location}}</a>
         <a>{{event_date}}</a>
+        <a>{{event_description}}</a>
     </div>
 
     <!--Learn More Button-->
+    <!-- Matt, when this button is clicked, it should take you to the menu page.-->
 
-    <div>
+    <a class="cta" href="/views/partials/menu.handlebars">
     <button>Learn More</button>
-    </div>
+    </a>
 
   </a>
 </section>
-

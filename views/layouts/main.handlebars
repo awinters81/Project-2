@@ -5,7 +5,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Utopia</title>
-  <link rel="stylesheet" type="text/css" href="/css/style.css">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
@@ -13,34 +14,50 @@
 <!--Header-->
 
   <header>
-    <div>
-      
-    <img src="/images/utopiablue.JPG">
-    </div>
+    <img class="logo" src="/images/utopiablue.JPG">
+  
+  <!--Navigation-->
+    <nav>
+ 
+     {{#if loggedIn }}
+    
+    <a href="/">Home</a>
+    <a href="/">Personal Info</a>
+    <a href="/">Settings</a>
+    <button class="logout-btn">Logout</button>
+<!--Matt, when button is clicked, it should end the session and redirect to main-->
+
+    {{else}}
+    <a href="/">Home</a>
+    <a href="/views/partials/login.handlebars">Login</a>
+
+    {{/if}}
+
+    </nav>
   </header>
   
-<!--Navigation-->
-
-  <nav>
- 
-    {{#if loggedIn }}
-    
-    <a href="">Home</a>
-    <a href=" ">Personal Info</a>
-    <a href=" ">Setting</a>
-    <a href=" ">Social Media</a>
-  </nav>
-
-
   <main>
-    <aside>
+    <div class="welcome">
       <h2>Welcome to Utopia!</h2>
       <h3>Where all your culinary dreams come true!</h3>
-    </aside>
-    <div class="gallery">
+    </div>
+
+    <div class="homepage">
       {{{body}}}
     </div>
   </main>
+
+<script src="/javascript/login.js"></script>
+
 </body>
+
+<footer>
+      <h3>
+        UTOPIA PROJECT 2
+      </h3>
+        <a href="#" class="fa fa-facebook"></a>
+        <a href="#" class="fa fa-twitter"></a>
+        <a href="#" class="fa fa-instagram"></a>
+</footer>
 
 </html>
