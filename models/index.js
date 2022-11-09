@@ -16,11 +16,13 @@ Event.belongsToMany(User, {
 });
 
 Menu.belongsTo(Event, {
-    foreignKey: 'event_id'
+    foreignKey: 'event_id',
+    onDelete: "CASCADE"
 });
 
-Event.hasMany(Menu, {
-    foreignKey: 'event_id'
+Event.hasOne(Menu, {
+    foreignKey: 'event_id',
+    onDelete: "CASCADE"
 });
 
 
