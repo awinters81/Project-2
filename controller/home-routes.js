@@ -20,6 +20,23 @@ router.get('/', (req, res) => {
     });
 });
 
+// get a single event by id
+router.get('/', (req, res) => {
+    Event.findOne({
+        where: {id: req.params.id},
+        attributes: [ 'id', 'event_title', 'event_description', 'event_location', 'event_date', 'event_picture' ]
+    }).then(singleEvent => {
+        if(!singleEvent) {
+            res.status(400).json({message: 'no event found with this id'});
+            return;
+        }
+        res.json(singleEvent);
+    }).catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    });
+});
+
 // access login/signup page from the homepage
 router.get('/login', (req, res) => {
     //check for a session and redirect to the homepage once the user is logged in
