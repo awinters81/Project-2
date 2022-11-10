@@ -1,5 +1,5 @@
 const sequelize = require('../config/connection');
-const {User, Event} = require('../models');
+const {User, Event, Menu} = require('../models');
 
 
 const router = require('express').Router();
@@ -21,18 +21,34 @@ router.get('/', (req, res) => {
 });
 
 // get a single event by id
-router.get('/', (req, res) => {
+router.get('/events/:id', (req, res) => {
     Event.findOne({
         where: {id: req.params.id},
+<<<<<<< HEAD
         attributes: [ 'id', 'event_title', 'event_description', 'event_location', 'event_date', 'event_picture' ]
 >>>>>>> 6b9c88d26249e78b0eac9386d3f932161872a33a
     }).then(dbEventData => {
         if(!dbEventData) {
+=======
+        attributes: [ 'id', 'event_title', 'event_description', 'event_location', 'event_date', 'event_picture' ],
+        include: [
+            {
+                association: 'attendants',
+                attributes: ['first_name', 'last_name', 'username']
+            }, 
+            {
+                model: Menu,
+                attributes: ['menuTitle', 'appetizer_name', 'appetizer_description', 'appetizer_picture', 'main_name', 'main_description', 'main_picture', 'drink_name', 'drink_description', 'drink_picture', 'dessert_name', 'dessert_description', 'dessert_picture']
+            }
+        ]
+    }).then(allEvents => {
+        if(!allEvents) {
+>>>>>>> 339aaa14376818c112c3c8e6568844dbd27dddef
             res.status(400).json({message: 'no event found with this id'});
             return;
         }
-        const event = dbEventData.get({plain: true});
-        res.render('homepage', {event});
+        const event = allEvents.get({plain: true});
+        res.render('single-event', {event});
     }).catch(err => {
         console.log(err);
         res.status(500).json(err);
