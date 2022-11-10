@@ -1,43 +1,5 @@
 
-<!--Every event will use the event-details to render info-->
-{{!-- 
-{{#each event as |event|}}
-{{> event-details}}
-{{/each}}
- --}}
-
-<!--Header-->
-
-  <header>
-    <img class="logo" src="/images/logo.jpg">
-  
-  <!--Navigation-->
-    <nav>
- 
-     {{#if loggedIn }}
-    
-    <ul class="nav-links"></ul>
-      <li><a href="/">Home</a> </li>
-      <li><a href="/">Personal Info</a></li>
-      <li><a href="/">Settings</a></li>
-      <li><button class="logout-btn">Logout</button></li>
-
-<!--Matt, when button is clicked, it should end the session and redirect to main-->
-
-    {{else}}
-
-    <ul class="nav-links"></ul>
-    <li><a href="</">Home</a></li>
-    <li><a href="/login">Login</a></li>
-
-    {{/if}}
-
-    </nav>
-
-  </header>
-  
 <!--Welcome-->
-
     <div class="welcome">
       <h2>Welcome to Utopia!</h2>
       <h3>Where all your culinary dreams come true!</h3>
@@ -45,39 +7,35 @@
 
 <!--Event-->
 
-    <div class="events">
+<section >
+  
+  <div class="events">
         <div class=" row justify-content-center">
             
             <!--Event Details-->
-
+            {{#each events}}
             <div class="event-card">
 
                 <!--Image for event-->
 
-                <img src="/" class="card-img-top" alt="...">
+                <img src="/images/{{event_picture}}" class="homepage-image" alt="...">
 
                 <div class="event-body">
-                      <h4 class="event-title">Title</h4>
+                      <h4 class="event-title">{{event_title}}</h4>
                         
-                        <h5> Location</h5>
-                        <h5> Date</h5>
+                        <h5>{{event_location}}</h5>
+                        <h5>{{event_date}}</h5>
                       
                       <div class="event-details">
-                            <p>Description</p>
+                            <p>{{event_description}}</p>
                       </div> 
 
                 </div>
             
             </div>
+            {{/each}}
         </div>
     </div>
 
-    
-<footer>
-      <h3>
-        UTOPIA PROJECT 2
-      </h3>
-        <a href="#" class="fa fa-facebook"></a>
-        <a href="#" class="fa fa-twitter"></a>
-        <a href="#" class="fa fa-instagram"></a>
-</footer>
+  
+</section>

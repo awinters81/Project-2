@@ -9,11 +9,9 @@ router.get('/', (req, res) => {
     console.log(req.session);
     Event.findAll({
         attributes: [ 'id', 'event_title', 'event_description', 'event_location', 'event_date', 'event_picture' ]
-    }).then(dbEventData => {
-        const events = dbEventData.map(event => {
-            return event.get({ plain: true });
-        })
-        res.render('homepage', {events });
+    }).then(allEvents => {
+        const events = allEvents.map(event => event.get({ plain: true }));
+        res.render('homepage', {events});
     }).catch(err => {
         console.log(err);
         res.status(500).json(err);
@@ -25,12 +23,13 @@ router.get('/', (req, res) => {
     Event.findOne({
         where: {id: req.params.id},
         attributes: [ 'id', 'event_title', 'event_description', 'event_location', 'event_date', 'event_picture' ]
-    }).then(singleEvent => {
-        if(!singleEvent) {
+    }).then(dbEventData => {
+        if(!dbEventData) {
             res.status(400).json({message: 'no event found with this id'});
             return;
         }
-        res.json(singleEvent);
+        const event = dbEventData.get({plain: true});
+        res.render('homepage', {event});
     }).catch(err => {
         console.log(err);
         res.status(500).json(err);
