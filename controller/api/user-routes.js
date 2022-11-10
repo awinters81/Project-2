@@ -73,36 +73,26 @@ router.post('/login', (req, res) => {
             res.status(400).json({message: 'Wrong password! Please try again!'});
             return;
         }
-        req.session.save((err) => {
-            if(err) res.status(500).json({message: "Error saving session internal error", err});
-            req.session.userId = dbUserData.ib
-            req.session.userName = dbUserData.id
-            req.session.loggedIn = true
-            res.status(204).json({ user: dbUserData, message: 'Login successful!' });
-        })
-    })
-})
+        req.session.save(() => {
+            req.session.user_id = dbUserData.id,
+            req.session.username = dbUserData.username,
+            req.session.loggedIn = true;        
+        });
+        return res.json({ user: dbUserData, message: 'Login successful!' });
+    });
+});
 
 // ===== LOGOUT = destroy the current session
 router.post('/logout', (req, res) => {
-    console.log("Request logout", req)
-    console.log("Respond logout", res);
-    const abort = new AbortController();
-    if(!req.session) {
-        res.status(400).send("Session not found cannot logout");
-    };
-
     if(req.session.loggedIn) {
-        res.session.destroy((signal) => {
-            signal = abort.signal
-            res.status(204).json({message: "Logout was succsesful"}).end();
+        req.session.destroy(() => {
+            res.status(204).end();
+            
         });
-    };
-
-    res.status(500).send("Internal server error") 
-
+    } else {
+        res.status(404).end();
+    }
 });
-
 // ===== PUT /api/users
 router.put('/:id', (req, res) => {
     // UPDATE users SET first_name = '', last_name = '', username = '', email = '', password = '' WHERE id = ?
