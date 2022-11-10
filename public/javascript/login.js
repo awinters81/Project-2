@@ -15,7 +15,7 @@ async function signupFormHandler(event) {
         });
         if(response.ok) {
             console.log('user successfully created');
-            document.location.replace('/single-event')
+            document.location.replace('/')
         } else {
             alert(response.statusText);
         }
@@ -38,7 +38,7 @@ async function loginFormHandler(event) {
             headers: { 'Content-Type': 'application/json'}
         });
         if(response.ok) {
-            document.location.replace('/single-event');
+            document.location.replace('/');
             console.log('you are logged in')
         } else {
             alert(response.statusText);

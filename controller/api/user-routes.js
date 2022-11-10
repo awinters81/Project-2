@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const {User, Event} = require('../../models');
 
-// ===== GET all users info -> /api/users
+// ===== GET all users info -> /api/users - FOR SERVER-SIDE TESTING
 router.get('/', (req, res) => {
     // SELECT * FROM users table
     User.findAll({
@@ -14,7 +14,7 @@ router.get('/', (req, res) => {
     });
 });
 
-// ===== GET a single user info by ID -> /api/users/id
+// ===== GET a single user info by ID -> /api/users/id - FOR USER PROFILE
 router.get('/:id', (req, res) => {
     // SELECT * FROM users WHERE id = ?
     User.findOne({
@@ -31,7 +31,9 @@ router.get('/:id', (req, res) => {
             res.status(400).json({message: 'No user found with specified ID. Please try again'});
             return;
         }
-        res.json(dbUserData);
+        const userInfo = dbUserData.get({plain: true});
+        res.render('user-profile', userInfo);
+        // res.json(dbUserData);
     }).catch(err => {
         console.log(`cannot get user info because ${err}`);
         res.status(500).json(err);
@@ -54,6 +56,7 @@ router.post('/', (req, res) => {
             req.session.email = dbUserData.email;
             req.session.loggedIn = true;
             res.json(dbUserData);
+            console.log('user created');
        })).catch(err => {
         console.log(`cannot get user info because ${err}`);
         res.status(500).json(err);
@@ -99,7 +102,7 @@ router.post('/logout', (req, res) => {
     }
 });
 
-// ===== PUT /api/users
+// ===== PUT /api/users - so users can update their info 
 router.put('/:id', (req, res) => {
     // UPDATE users SET first_name = '', last_name = '', username = '', email = '', password = '' WHERE id = ?
     User.update(req.body, {
@@ -110,6 +113,7 @@ router.put('/:id', (req, res) => {
             res.status(400).json({message: 'No user found with specified ID. Please try again'});
             return;
         }
+        res.render('user-profile')
         res.json(dbUserData);
     }).catch(err => {
         console.log(`cannot get user info because ${err}`);
@@ -117,7 +121,7 @@ router.put('/:id', (req, res) => {
     })
 })
 
-// ===== DELETE /api/users
+// ===== DELETE /api/users - for future dev. when the profile page is ready
 router.delete('/:id', (req, res) => {
     // DELETE FROM users WHERE id=?
     User.destroy({
