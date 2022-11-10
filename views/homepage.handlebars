@@ -1,0 +1,40 @@
+<!--Welcome-->
+    <div class="welcome">
+      <h2>Welcome to Utopia!</h2>
+      <h3>Where all your culinary dreams come true!</h3>
+    </div>
+
+<!--Event-->
+
+{{#each events as |event|}}
+{{> event-details event}}
+{{/each}}
+    
+    <!--<div class="events">
+        
+        <div class=" row justify-content-center">
+            
+            <!-- Event Details-->
+
+            <!--<div class="event-card">
+            
+                <!-- Image for event-->
+
+               <!-- <img src="/" class="card-img-top" alt="...">
+
+                <div class="event-body">
+                      <h4 class="event-title">{{Event.event_title}}</h4>
+                        
+                        <h5>{{Event.event_date}}</h5>
+                        <h5>{{Event.event_location}}</h5>
+                      
+                      <div class="event-details">
+                            <p>{{Event.event_description}}</p>
+                      </div> 
+
+                </div>
+            
+            </div>
+        </div>
+    
+    </div>-->
