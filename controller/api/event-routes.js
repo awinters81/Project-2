@@ -29,7 +29,7 @@ router.get('/:id', (req, res) => {
                 }, 
                 {
                     model: Menu,
-                    attributes: ['menuTitle', 'appetizer_name', 'appetizer_description', 'main_name', 'main_description', 'drink_name', 'drink_description', 'dessert_name', 'dessert_description']
+                    attributes: ['menuTitle', 'appetizer_name', 'appetizer_description', 'appetizer_picture', 'main_name', 'main_description', 'main_picture', 'drink_name', 'drink_description', 'drink_picture', 'dessert_name', 'dessert_description', 'dessert_picture']
                 }
             ]
         }).then(dbEventData => {

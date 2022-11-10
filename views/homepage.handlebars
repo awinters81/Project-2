@@ -1,16 +1,11 @@
-<!DOCTYPE html>
-{{!-- <html lang="en">
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Utopia</title>
-  <link rel="stylesheet" type="text/css" href="css/style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-</head>
+<!--Every event will use the event-details to render info-->
+{{!-- 
+{{#each event as |event|}}
+{{> event-details}}
+{{/each}}
+ --}}
 
-<body>
-  
 <!--Header-->
 
   <header>
@@ -26,6 +21,7 @@
       <li><a href="/">Personal Info</a></li>
       <li><a href="/">Settings</a></li>
       <li><button class="logout-btn">Logout</button></li>
+
 <!--Matt, when button is clicked, it should end the session and redirect to main-->
 
     {{else}}
@@ -37,23 +33,46 @@
     {{/if}}
 
     </nav>
+
   </header>
   
-  <main>
+<!--Welcome-->
+
     <div class="welcome">
       <h2>Welcome to Utopia!</h2>
       <h3>Where all your culinary dreams come true!</h3>
     </div>
 
-    <div class="homepage">
-      {{{body}}}
+<!--Event-->
+
+    <div class="events">
+        <div class=" row justify-content-center">
+            
+            <!--Event Details-->
+
+            <div class="event-card">
+
+                <!--Image for event-->
+
+                <img src="/" class="card-img-top" alt="...">
+
+                <div class="event-body">
+                      <h4 class="event-title">Title</h4>
+                        
+                        <h5> Location</h5>
+                        <h5> Date</h5>
+                      
+                      <div class="event-details">
+                            <p>Description</p>
+                      </div> 
+
+                </div>
+            
+            </div>
+        </div>
     </div>
-  </main>
 
-<script src="/javascript/login.js"></script>
-
-</body>
-
+    
 <footer>
       <h3>
         UTOPIA PROJECT 2
@@ -62,25 +81,3 @@
         <a href="#" class="fa fa-twitter"></a>
         <a href="#" class="fa fa-instagram"></a>
 </footer>
-
-</html> --}}
-
-<html lang="en">
-
-<head>
-  <title>Utopia</title>
-  <link rel="stylesheet" type="text/css" href="css/style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-</head>
-
-<body>
-
-     <div class="homepage-container">
-      {{{body}}}
-    </div>
-
-<script src="/javascript/login.js"></script>
-
-</body>
-
-</html>

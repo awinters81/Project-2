@@ -8,7 +8,7 @@ const router = require('express').Router();
 router.get('/', (req, res) => {
     console.log(req.session);
     Event.findAll({
-        attributes: [ 'id', 'event_title', 'event_description', 'event_location', 'event_date' ]
+        attributes: [ 'id', 'event_title', 'event_description', 'event_location', 'event_date', 'event_picture' ]
     }).then(dbEventData => {
         const events = dbEventData.map(event => {
             return event.get({ plain: true });
@@ -22,11 +22,11 @@ router.get('/', (req, res) => {
 
 // access login/signup page from the homepage
 router.get('/login', (req, res) => {
-    // check for a session and redirect to the homepage once the user is logged in
-    // if(req.session.loggedIn) {
-    //     res.redirect('/');
-    //     return
-    // }
+    //check for a session and redirect to the homepage once the user is logged in
+    if(req.session.loggedIn) {
+        res.redirect('/');
+        return
+    }
     res.render('login')
 })
 
