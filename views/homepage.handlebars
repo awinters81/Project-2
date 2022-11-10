@@ -1,4 +1,41 @@
 
-{{#each event as |event|}}
-{{> event-contain}}
-{{/each}}
+<!--Welcome-->
+    <div class="welcome">
+      <h2>Welcome to Utopia!</h2>
+      <h3>Where all your culinary dreams come true!</h3>
+    </div>
+
+<!--Event-->
+
+<section >
+  
+  <div class="events">
+        <div class=" row justify-content-center">
+            
+            <!--Event Details-->
+            {{#each events}}
+            <div class="event-card">
+
+                <!--Image for event-->
+
+                <img src="/images/{{event_picture}}" class="homepage-image" alt="...">
+
+                <div class="event-body">
+                      <a href="/events/{{id}}" class="event-title">{{event_title}}</a>
+                        
+                        <h5>{{event_location}}</h5>
+                        <h5>{{event_date}}</h5>
+                      
+                      <div class="event-details">
+                            <p>{{event_description}}</p>
+                      </div> 
+
+                </div>
+            
+            </div>
+            {{/each}}
+        </div>
+    </div>
+
+  
+</section>

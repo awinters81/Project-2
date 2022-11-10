@@ -1,5 +1,6 @@
 const router = require('express').Router();
-const {Event, User} = require('../../models');
+const sequelize = require('../../config/connection');
+const {Event, User, Menu} = require('../../models');
 
 
 // ===== GET all events info -> /api/events
@@ -25,13 +26,18 @@ router.get('/:id', (req, res) => {
                 {
                     association: 'attendants',
                     attributes: ['first_name', 'last_name', 'username']
+                }, 
+                {
+                    model: Menu,
+                    attributes: ['menuTitle', 'appetizer_name', 'appetizer_description', 'appetizer_picture', 'main_name', 'main_description', 'main_picture', 'drink_name', 'drink_description', 'drink_picture', 'dessert_name', 'dessert_description', 'dessert_picture']
                 }
             ]
         }).then(dbEventData => {
             if(!dbEventData) {
                 return res.status(400).json({message: 'Event with requested id not found. Please check the id'});
             }
-            res.json(dbEventData);
+            const event = dbEventData.get({plain: true});
+            res.render('single-event', {event});
         }).catch(err => {
             console.log(err);
             res.status(500).json(err);

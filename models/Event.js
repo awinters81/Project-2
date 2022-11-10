@@ -26,6 +26,10 @@ Event.init(
         event_date: {
             type: DataTypes.DATEONLY,
             allowNull: false 
+        },
+        event_picture: {
+            type: DataTypes.STRING,
+            allowNull: false
         }
     },
     {

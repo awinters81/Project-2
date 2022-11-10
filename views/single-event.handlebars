@@ -1,0 +1,57 @@
+{{#if loggedIn}}
+
+
+{{/if}}
+
+<div class=" row justify-content-center">
+    <div class="col-6">
+      
+            <!-- EVENT CARD-->
+            <div class="event-card">
+
+                <div class="event-body">
+                      <h5>{{event.event_title}}</h5>
+                        
+                        <h5>{{event.event_location}}</h5>
+                        <h5>{{event.event_date}}</h5>
+                      
+                      <div class="event-details">
+                            <p>{{event.event_description}}</p>
+                      </div> 
+
+                </div>
+            
+            </div>
+           
+            <!-- MENU CARD-->
+            <div class="menu-card">
+
+                <div class="appetizer">
+                    <img src="/images/{{event.menu.appetizer_picture}}" class="homepage-image" alt="...">
+                    <h5>{{event.menu.appetizer_name}}</h5>
+                    <p>{{event.menu.appetizer_description}}</p>
+                </div>
+                
+                <div class="mainCourse">
+                    <img src="/images/{{event.menu.main_picture}}" class="homepage-image" alt="...">
+                    <h5>{{event.menu.main_name}}</h5>
+                    <p>{{event.menu.main_description}}</p>
+                </div>
+
+                <div class="drink">
+                    <img src="/images/{{event.menu.drink_picture}}" class="homepage-image" alt="...">
+                    <h5>{{event.menu.drink_name}}</h5>
+                    <p>{{event.menu.drink_description}}</p>
+                </div>
+
+                <div class="dessert">
+                    <img src="/images/{{event.menu.dessert_picture}}" class="homepage-image" alt="...">
+                    <h5>{{event.menu.dessert_name}}</h5>
+                    <p>{{event.menu.dessert_description}}</p>
+                </div>
+                
+            
+            </div>
+
+    </div>
+</div>
