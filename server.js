@@ -12,6 +12,10 @@ const path = require('path');
 //middleware for front end
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.get('/homepage', (req, res) => {
+ res.render('event');
+});
+
 const PORT = process.env.PORT || 3001;
 
 app.use(express.json());
@@ -40,6 +44,6 @@ app.set('view engine', 'handlebars');
 
 
 //connect server to the database
-sequelize.sync({ force: false }).then(() => {
+sequelize.sync({ force: true }).then(() => {
     app.listen(PORT, () => console.log('now listening on the port'));
 });
