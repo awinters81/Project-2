@@ -10,7 +10,7 @@ router.get('/', (req, res) => {
     }).then(dbUserData => {
         return res.json(dbUserData);
     }).catch(err => {
-        console.log(`cannot get all users because ${err}`);
+        console.log(err);
         res.status(500).json(err);
     });
 });
@@ -48,9 +48,14 @@ router.post('/', (req, res) => {
         username: req.body.username,
         email: req.body.email,
         password: req.body.password 
-    }).then(dbUserData => {
-        return res.json(dbUserData);
-    }).catch(err => {
+    }).then(dbUserData => 
+        req.session.save(() => {
+            req.session.user_id = dbUserData.id;
+            req.session.username = dbUserData.username;
+            req.session.email = dbUserData.email;
+            req.session.loggedIn = true;
+            res.json(dbUserData);
+       })).catch(err => {
         console.log(`cannot get user info because ${err}`);
         res.status(500).json(err);
     })
@@ -87,7 +92,8 @@ router.post('/logout', (req, res) => {
     if(req.session.loggedIn) {
         req.session.destroy(() => {
             res.status(204).end();
-            
+            res.json({message: 'logged out'});
+
         });
     } else {
         res.status(404).end();

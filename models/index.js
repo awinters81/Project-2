@@ -3,7 +3,6 @@
 // connection and associations between tables will go here
 const User = require('./User');
 const Event = require('./Event');
-
 const Menu = require('./Menu');
 
 // associations between User and Event tables
@@ -18,11 +17,13 @@ Event.belongsToMany(User, {
 });
 
 Menu.belongsTo(Event, {
-    foreignKey: 'event_id'
+    foreignKey: 'event_id',
+    onDelete: "CASCADE"
 });
 
-Event.hasMany(Menu, {
-    foreignKey: 'event_id'
+Event.hasOne(Menu, {
+    foreignKey: 'event_id',
+    onDelete: "CASCADE"
 });
 
 

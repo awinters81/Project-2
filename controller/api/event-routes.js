@@ -1,5 +1,6 @@
 const router = require('express').Router();
-const {Event, User} = require('../../models');
+const sequelize = require('../../config/connection');
+const {Event, User, Menu} = require('../../models');
 
 
 // ===== GET all events info -> /api/events
@@ -7,8 +8,8 @@ router.get('/', (req, res) => {
     // SELECT * FROM events
     Event.findAll({
         attributes: ['id', 'event_title', 'event_description', 'event_location', 'event_date']
-    }).then(dbEventData => {
-        return res.json(dbEventData);
+    }).then(allEvents => {
+        return res.json(allEvents);
     }).catch(err => {
         console.log(err);
         res.status(500).json(err);
@@ -18,23 +19,29 @@ router.get('/', (req, res) => {
 // ===== GET a single event by id -> /api/events/:id
 router.get('/:id', (req, res) => {
     // SELECT * FROM events WHERE id=?
-    Event.findOne({
-        where: {id: req.params.id},
-        include: [
-            {
-                association: 'attendants',
-                attributes: ['first_name', 'last_name', 'username']
+    if(req.session) {
+        Event.findOne({
+            where: {id: req.params.id},
+            include: [
+                {
+                    association: 'attendants',
+                    attributes: ['first_name', 'last_name', 'username']
+                }, 
+                {
+                    model: Menu,
+                    attributes: ['menuTitle', 'appetizer_name', 'appetizer_description', 'appetizer_picture', 'main_name', 'main_description', 'main_picture', 'drink_name', 'drink_description', 'drink_picture', 'dessert_name', 'dessert_description', 'dessert_picture']
+                }
+            ]
+        }).then(singleEvent => {
+            if(!singleEvent) {
+                return res.status(400).json({message: 'Event with requested id not found. Please check the id'});
             }
-        ]
-    }).then(dbEventData => {
-        if(!dbEventData) {
-            return res.status(400).json({message: 'Event with requested id not found. Please check the id'});
-        }
-        res.json(dbEventData);
-    }).catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-    });
+            res.json(singleEvent);
+        }).catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
+    }
 });
 
 // ===== POST a new event -> /api/events

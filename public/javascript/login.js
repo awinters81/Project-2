@@ -1,44 +1,49 @@
 async function signupFormHandler(event) {
     event.preventDefault();
     
+    const first_name = document.querySelector('#signup-first').value.trim();
+    const last_name = document.querySelector('#signup-last').value.trim();
     const username = document.querySelector('#signup-user').value.trim();
     const email = document.querySelector('#signup-email').value.trim();
     const password = document.querySelector('#signup-password').value.trim();
 
-    if(username && email && password) {
-        const response = await fetch('api/users', {
+    if(first_name && last_name && username && email && password) {
+        const response = await fetch('/api/users', {
             method: 'POST',
-            body: JSON.stringify({username, email, password}),
+            body: JSON.stringify({first_name, last_name, username, email, password}),
             headers: { 'Content-Type': 'application/json' }
         });
         if(response.ok) {
-            console.log('success');
+            console.log('user successfully created');
+            document.location.replace('/event-contain')
         } else {
             alert(response.statusText);
         }
     }
 };
 
-document.querySelector('.signup-from').addEventListener('submit', signupFormHandler)
+document.querySelector('.signup-form').addEventListener('submit', signupFormHandler);
 
-async function loginFromHandler(event) {
+async function loginFormHandler(event) {
     event.preventDefault();
     
-    const username = document.querySelector('##username-login').value.trim();
+    const username = document.querySelector('#username-entry').value.trim();
+    const email = document.querySelector('#email-entry').value.trim();
     const password = document.querySelector('#password-entry').value.trim();
 
-    if(username && password) {
-        const response = await fetch('api/users', {
+    if(email && username && password) {
+        const response = await fetch('/api/users/login', {
             method: 'POST',
-            body: JSON.stringify({username, password}),
-            headers: { 'content-Type': 'application/json'}
+            body: JSON.stringify({email, username, password}),
+            headers: { 'Content-Type': 'application/json'}
         });
         if(response.ok) {
-            document.location.replace('login-part');
+            document.location.replace('/event-contain');
+            console.log('you are logged in')
         } else {
             alert(response.statusText);
         }
     }
 }
 
-document.querySelector('.login').addEventListener('submit', signupFormHandler)
+document.querySelector('.login-form').addEventListener('submit', loginFormHandler);

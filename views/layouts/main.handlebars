@@ -2,39 +2,57 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Utopia</title>
-  <link rel="stylesheet" type="text/css" href="/public/css/style.css">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 
-<body>
+<header>
+    <img class="logo" src="/images/logo.jpg">
   
-<!--Header-->
+  <!--Navigation-->
+    <nav>
+ 
+     {{#if loggedIn }}
+    
+    <ul class="nav-links"></ul>
+      <li><a href="/">Home</a> </li>
+      <li><a href="/">Personal Info</a></li>
+      <li><a href="/">Settings</a></li>
+      <li><button class="logout-btn">Logout</button></li>
 
-  <header>
-    <img src="/images/Utopia (blue).JPG ">
+<!--Matt, when button is clicked, it should end the session and redirect to main-->
+
+    {{else}}
+
+    <ul class="nav-links"></ul>
+    <li><a href="</">Home</a></li>
+    <li><a href="/views/partials/login.handlebars">Login</a></li>
+
+    {{/if}}
+
+    </nav>
+
   </header>
-  
-<!--Navigation-->
 
-  <nav>
-    <a href=" ">Home</a>
-    <a href=" ">Personal Info</a>
-    <a href=" ">Setting</a>
-    <a href=" ">Social Media</a>
-  </nav>
+<body>
 
-
-  <main>
-    <aside>
-      <h2>Welcome to Utopia!</h2>
-      <h3>Where all your culinary dreams come true!</h3>
-    </aside>
-    <div class="gallery">
+     <div class="homepage-container">
       {{{body}}}
     </div>
-  </main>
+
+
+
+<footer>
+      <h3>
+        UTOPIA PROJECT 2
+      </h3>
+        <a href="#" class="fa fa-facebook"></a>
+        <a href="#" class="fa fa-twitter"></a>
+        <a href="#" class="fa fa-instagram"></a>
+</footer>
+
 </body>
 
 </html>
