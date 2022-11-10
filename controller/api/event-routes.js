@@ -8,8 +8,8 @@ router.get('/', (req, res) => {
     // SELECT * FROM events
     Event.findAll({
         attributes: ['id', 'event_title', 'event_description', 'event_location', 'event_date']
-    }).then(allEvents => {
-        return res.json(allEvents);
+    }).then(dbEventData => {
+        return res.json(dbEventData);
     }).catch(err => {
         console.log(err);
         res.status(500).json(err);
@@ -32,11 +32,12 @@ router.get('/:id', (req, res) => {
                     attributes: ['menuTitle', 'appetizer_name', 'appetizer_description', 'appetizer_picture', 'main_name', 'main_description', 'main_picture', 'drink_name', 'drink_description', 'drink_picture', 'dessert_name', 'dessert_description', 'dessert_picture']
                 }
             ]
-        }).then(singleEvent => {
-            if(!singleEvent) {
+        }).then(dbEventData => {
+            if(!dbEventData) {
                 return res.status(400).json({message: 'Event with requested id not found. Please check the id'});
             }
-            res.json(singleEvent);
+            const event = dbEventData.get({plain: true});
+            res.render('single-event', {event});
         }).catch(err => {
             console.log(err);
             res.status(500).json(err);
