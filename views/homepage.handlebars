@@ -5,36 +5,35 @@
     </div>
 
 <!--Event-->
-
-{{#each events as |event|}}
-{{> event-details event}}
-{{/each}}
+<section class="event-card">
+  
+  <!--Link to the event using event ID -->
+  
+  <a href="/events/{{id}}">
     
-    <!--<div class="events">
-        
-        <div class=" row justify-content-center">
-            
-            <!-- Event Details-->
-
-            <!--<div class="event-card">
-            
-                <!-- Image for event-->
-
-               <!-- <img src="/" class="card-img-top" alt="...">
-
-                <div class="event-body">
-                      <h4 class="event-title">{{Event.event_title}}</h4>
-                        
-                        <h5>{{Event.event_date}}</h5>
-                        <h5>{{Event.event_location}}</h5>
-                      
-                      <div class="event-details">
-                            <p>{{Event.event_description}}</p>
-                      </div> 
-
-                </div>
-            
-            </div>
-        </div>
+    <!-- Event name as the card header -->
     
-    </div>-->
+    <header>{{singleEvent.event_title}}hello</header>
+    
+    <!--Image of food -->
+
+    <img src="/images/{{filename}}">
+
+    <!--Location, Date, Time-->
+
+    <div>
+        <a>{{event_location}}</a>
+        <a>{{event_date}}</a>
+        <a>{{event_description}}</a>
+    </div>
+
+    <!--Learn More Button-->
+    <!-- Matt, when this button is clicked, it should take you to the menu page.-->
+
+    <a class="cta" href="/views/partials/menu.handlebars">
+    <button>Learn More</button>
+    </a>
+
+  </a>
+</section>
+
