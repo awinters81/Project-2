@@ -1,3 +1,4 @@
+/*
 // this table will serve as a connection between User and Event tables
 const {Model, DataTypes} = require('sequelize');
 const sequelize = require('../config/connection');
@@ -36,4 +37,4 @@ Attendants.init(
     }
 );
 
-module.exports = Attendants;
+module.exports = Attendants;*/

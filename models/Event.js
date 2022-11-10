@@ -24,16 +24,18 @@ Event.init(
             allowNull: false
         },
         event_date: {
-            type: DataTypes.DATEONLY,
+            type: DataTypes.STRING,
             allowNull: false 
-        },
-        user_id: {
-            type: DataTypes.INTEGER,
-            references: {
-                model: 'user',
-                key: 'id'
-            }
         }
+        // menu_id: {
+        //     type: DataTypes.INTEGER,
+        //     references: {
+        //         model: "menu",
+        //         key: "id"
+        //     }
+
+        // }
+
     },
     {
         sequelize,
