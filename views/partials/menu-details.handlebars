@@ -1,0 +1,33 @@
+<section class="menu-card">
+  
+  <!--links to menu page using the menu ID -->
+
+  <a href="/menu/{{id}}">
+
+<!-- Menu name as the card header -->
+    
+<header>{{menuTitle}}</header>
+
+<!-- Event and Menu Description -->
+
+<div class="menu-body">
+    <img src="/images/{{filename}}">
+</div>
+
+<div>
+    <a href="//{{event_description}}"></a>
+</div>
+
+{{#each menu as |menu|}}
+{{> Menu}}
+{{/each}}
+
+<!--RSVP Button-->
+
+<a class="cta" href="#">
+    <button>RSVP</button>
+</div>
+
+</a>
+</section>
+
