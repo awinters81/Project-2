@@ -1,35 +1,5 @@
-* {
-    margin: 0;
-    padding: 0;
-    background-color: skyblue;
-}
-
-li, a {
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-weight: 500;
-    font-size: 16px;
-    color: white;
-    text-decoration: none;
-}
-
-header {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    padding: 30px 10%;
-    position: relative;
-    top: 0;
-    left: 0;
-    width: 85%;
-    height: 50px;
-    background-color:blue;
-}
-
 .logo {
-    cursor: pointer;
-    margin-right: auto;
-    height: 100px;
-    width: 100px;
+    height: 400px;
 }
 
 .nav__links {
@@ -49,12 +19,12 @@ header {
     color: #0088a9;
 }
 
-body{
-    display: block;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
-
-
-footer{
-    position: relative;
+button {
+    padding: 9px 25px;
+    background-color: rgba(0,136,169,1);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+    margin-left: 20px;
 }

@@ -23,6 +23,10 @@ Menu.init(
             type: DataTypes.TEXT,
             allowNull: false
         },
+        appetizer_picture: {
+            type: DataTypes.STRING,
+            allowNull: false 
+        },
         main_name: {
             type: DataTypes.STRING,
             allowNull: false
@@ -30,6 +34,10 @@ Menu.init(
         main_description: {
             type: DataTypes.TEXT,
             allowNull: false
+        },
+        main_picture: {
+            type: DataTypes.STRING,
+            allowNull: false 
         },
         drink_name: {
             type: DataTypes.STRING,
@@ -39,12 +47,20 @@ Menu.init(
             type: DataTypes.TEXT,
             allowNull: false
         },
+        drink_picture: {
+            type: DataTypes.STRING,
+            allowNull: false 
+        },
         dessert_name: {
             type: DataTypes.STRING,
             allowNull: false 
         },
         dessert_description: {
             type: DataTypes.TEXT,
+            allowNull: false 
+        },
+        dessert_picture: {
+            type: DataTypes.STRING,
             allowNull: false 
         },
         event_id: {
