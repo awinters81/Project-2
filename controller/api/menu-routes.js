@@ -15,7 +15,9 @@ router.get('/', (req, res) => {
         if(!dbMenuData) {
             return res.status(400).json({message: 'no menu info found'});
         }
-        res.json(dbMenuData);
+        //res.json(dbMenuData);
+        const allMenuInfo = dbMenuData.map(menu => menu.get({plain: true}));
+        res.render('single-event', {allMenuInfo});
     }).catch(err => {
         console.log(err);
         res.status(500).json(err);
@@ -37,7 +39,9 @@ router.get('/:id', (req, res) => {
         if(!dbMenuData) {
             return res.status(400).json({message: 'no items found with this id'});
         }
-        res.json(dbMenuData);
+        //res.json(dbMenuData); // - for testing
+        const menuInfo = dbMenuData.get({plain: true});
+        res.render('single-event', {menuInfo}); // - access this from handlebars
     }).catch(err => {
         console.log(err);
         res.status(500).json(err);

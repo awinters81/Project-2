@@ -44,7 +44,7 @@ a {
 body{
     text-align: center;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    background-color: rgb(119, 192, 252);
+    background-color: rgb(249, 249, 250);
 }
 
 /*Event Card*/
@@ -63,45 +63,91 @@ section{
 .event-card{
     flex: content;
     border: 10px solid rgb(6, 76, 122);
-    height: 400px;
-    width: 400px;
-    margin: 10px;
-    padding: 10px;
+    height: 410px;
+    width: 350px;
+    margin-top: 10px;
+    padding-top: 10px;
     align-items: center;
     background-color: rgb(253, 241, 175);
 }
 
+.event-body{
+    flex: content;
+    background-color:rgb(6, 76, 122);
+}
+
 .homepage-image {
     height: 250px;
+    padding-bottom: 10px;
 }
 
 .events {
-    flex-direction: row;
+    flex: content;
+    padding: 20px;
+    margin: 20px;
+    display: flex;
+    flex-wrap: wrap;
     justify-content: center;
+}
+
+.event-body a{
+    color:rgb(94, 169, 240);
+    font-size: 14pt;
+}
+
+.event-body h5, .event-details p{
+    color:#fff;
 }
 
 footer{
     position: static;
     bottom: 0;
     background: rgba(1,53,93,255);
+    color:rgb(72, 134, 192);
 }
 
 /*Login*/
 
 .login-page{
     background-color: rgb(253, 241, 175);
+    margin: 10px;
+    padding: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 }
 
+.login, .signup{
+    background-color:rgb(94, 169, 240);
+    height: 300px;
+    width: 400px;
+    margin: 10px;
+    padding: 10px;
+}
+
+
+
 /*Single Event*/
+.event-card2{
+    color:rgb(6, 76, 122)
+}
 
 .menu-card{
     border: 10px solid rgb(6, 76, 122);
-    height: 500px;
-    width: 500px;
     margin: 10px;
     padding: 10px;
     align-items: center;
     background-color: rgb(253, 241, 175);
+    color:rgb(6, 76, 122)
+}
+
+.menu-card h1{
+    border-bottom: 10px solid rgb(6, 76, 122);
+}
+
+.appetizer,.mainCourse,.drink,.dessert{
+    margin: 10px;
+    padding: 10px;
+    border-bottom: 10px solid rgb(6, 76, 122);
 }
 
 .appetizer img{

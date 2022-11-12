@@ -4,8 +4,10 @@
 >>>>>>> 6b9c88d26249e78b0eac9386d3f932161872a33a
 <!--Welcome-->
     <div class="welcome">
+      <br>
       <h2>Welcome to Utopia!</h2>
-      <h3>Where all your culinary dreams come true!</h3>
+      <h3>Travel the world with us and let us make all your culinary dreams come true!</h3>
+      <br>
     </div>
 
 <!--Event-->
@@ -47,7 +49,7 @@
 <section >
   
   <div class="events">
-        <div class=" row justify-content-center">
+        <!--<div class="row justify-content-center">-->
             
             <!--Event Details-->
             {{#each events}}
@@ -56,22 +58,23 @@
                 <!--Image for event-->
 
                 <img src="/images/{{event_picture}}" class="homepage-image" alt="...">
-
+                    
                 <div class="event-body">
+                        <br>
                       <a href="/events/{{id}}" class="event-title">{{event_title}}</a>
-                        
+                        <br>
                         <h5>{{event_location}}</h5>
                         <h5>{{event_date}}</h5>
                       
                       <div class="event-details">
                             <p>{{event_description}}</p>
                       </div> 
-
+                        <br>
                 </div>
             
             </div>
             {{/each}}
-        </div>
+        <!--</div>-->
     </div>
 
   
