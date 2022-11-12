@@ -63,7 +63,7 @@ section{
 .event-card{
     flex: content;
     border: 10px solid rgb(6, 76, 122);
-    height: 405px;
+    height: 410px;
     width: 350px;
     margin-top: 10px;
     padding-top: 10px;
@@ -82,9 +82,11 @@ section{
 }
 
 .events {
-    display: flex;
     flex: content;
-    flex-direction: row;
+    padding: 20px;
+    margin: 20px;
+    display: flex;
+    flex-wrap: wrap;
     justify-content: center;
 }
 
@@ -101,6 +103,7 @@ footer{
     position: static;
     bottom: 0;
     background: rgba(1,53,93,255);
+    color:rgb(72, 134, 192);
 }
 
 /*Login*/
@@ -122,7 +125,11 @@ footer{
 }
 
 
+
 /*Single Event*/
+.event-card2{
+    color:rgb(6, 76, 122)
+}
 
 .menu-card{
     border: 10px solid rgb(6, 76, 122);
@@ -130,13 +137,18 @@ footer{
     padding: 10px;
     align-items: center;
     background-color: rgb(253, 241, 175);
+    color:rgb(6, 76, 122)
+}
+
+.menu-card h1{
+    border-bottom: 10px solid rgb(6, 76, 122);
 }
 
 .appetizer,.mainCourse,.drink,.dessert{
     margin: 10px;
     padding: 10px;
+    border-bottom: 10px solid rgb(6, 76, 122);
 }
-
 
 .appetizer img{
     height: 250px;
