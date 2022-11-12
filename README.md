@@ -78,9 +78,9 @@ lalala ........
 
 | 🔧 Developer  | 🔗 GitHub                                                 | 🔗 LinkedIn                                  |
 |:--------------:|:---------------------------------------------------------:|:-----------------------------------------:|
-| Alexandria     | [awinters81](https://github.com/awinters81)               | [Alexandria Winters](PASTE YOUR LINKEDIN)
+| Alexandria     | [awinters81](https://github.com/awinters81)               | [Alexandria Winters](https://www.linkedin.com/in/alexandria-winters-98199a23a/)
 | Valeriya       | [valkim55](https://github.com/valkim55)                   | [Valeriya Kim](https://www.linkedin.com/in/valeriya-kim-763572204/)
-| Bettina        | [bettinastaartjes](https://github.com/bettinastaartjes)   | [Bettina Staartjes](PASTE YOUR LINKEDIN)
-| Matthew        | [P1100s7](https://github.com/P1100s7)                     | [Matthew Parness](PASTE YOUR LINKEDIN)
+| Bettina        | [bettinastaartjes](https://github.com/bettinastaartjes)   | [Bettina Staartjes](https://www.linkedin.com/in/bettinastaartjes/)
+| Matthew        | [P1100s7](https://github.com/P1100s7)                     | [Matthew Parness](https://www.linkedin.com/in/matthew-parness)
 
 ### Thank you for visiting!
