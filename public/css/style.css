@@ -25,6 +25,13 @@ header{
     margin-left: 0px;
 }
 
+a {
+    color: white;
+    text-decoration:solid;
+}
+
+/*Navigation*/
+
 nav{
     display: flex;
     background-color: rgba(1,53,93,255);
@@ -34,10 +41,17 @@ nav{
     display: flex;
 }
 
-a {
-    color: white;
-    text-decoration:solid;
-}
+nav a {
+    padding: 14px 20px;
+    text-decoration: none;
+    text-align: center;
+    display: flex;
+  }
+
+  .nav__links {
+    list-style: none;
+  }
+
 
 /*Body*/
 
@@ -125,7 +139,15 @@ footer{
     padding: 10px;
 }
 
-
+button{
+    padding: 9px 25px;
+    background-color: rgb(241, 224, 66);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+    margin-left: 20px;
+}
 
 /*Single Event*/
 
