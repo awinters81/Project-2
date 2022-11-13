@@ -27,3 +27,5 @@ Event.hasOne(Menu, {
 
 
 module.exports = {User, Event, Menu};
+
+module.exports = {User, Event, Menu};
